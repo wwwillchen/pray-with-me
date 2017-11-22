@@ -17,6 +17,6 @@
     "noImplicitThis": true,
     "strict": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js"],
   "compileOnSave": false
 }

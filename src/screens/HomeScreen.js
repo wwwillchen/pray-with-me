@@ -28,8 +28,8 @@ export default class HomeScreen extends React.Component {
             <Image
               source={
                 __DEV__
-                  ? require("../assets/images/robot-dev.png")
-                  : require("../assets/images/robot-prod.png")
+                  ? require("../../assets/images/robot-dev.png")
+                  : require("../../assets/images/robot-prod.png")
               }
               style={styles.welcomeImage}
             />
@@ -49,7 +49,7 @@ export default class HomeScreen extends React.Component {
             </View>
 
             <Text style={styles.getStartedText}>
-              hi. Change this text and your app will automatically reload.
+              hi. Changew this text and your app will automatically reload.
             </Text>
           </View>
 
