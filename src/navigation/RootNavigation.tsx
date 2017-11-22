@@ -1,26 +1,27 @@
-import { Notifications } from 'expo';
-import React from 'react';
-import { StackNavigator } from 'react-navigation';
+import { Notifications } from "expo";
+import * as React from "react";
+import { StackNavigator } from "react-navigation";
 
-import MainTabNavigator from './MainTabNavigator';
-import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
+import MainTabNavigator from "./MainTabNavigator";
+import registerForPushNotificationsAsync from "../api/registerForPushNotificationsAsync";
 
 const RootStackNavigator = StackNavigator(
   {
     Main: {
-      screen: MainTabNavigator,
-    },
+      screen: MainTabNavigator
+    }
   },
   {
     navigationOptions: () => ({
       headerTitleStyle: {
-        fontWeight: 'normal',
-      },
-    }),
-  }
+        fontWeight: "normal"
+      }
+    })
+  } as any
 );
 
 export default class RootNavigator extends React.Component {
+  _notificationSubscription: any;
   componentDidMount() {
     this._notificationSubscription = this._registerForPushNotifications();
   }
@@ -41,10 +42,14 @@ export default class RootNavigator extends React.Component {
     registerForPushNotificationsAsync();
 
     // Watch for incoming notifications
-    this._notificationSubscription = Notifications.addListener(this._handleNotification);
+    this._notificationSubscription = Notifications.addListener(
+      this._handleNotification
+    );
   }
 
-  _handleNotification = ({ origin, data }) => {
-    console.log(`Push notification ${origin} with data: ${JSON.stringify(data)}`);
+  _handleNotification = ({ origin, data }: any) => {
+    console.log(
+      `Push notification ${origin} with data: ${JSON.stringify(data)}`
+    );
   };
 }
