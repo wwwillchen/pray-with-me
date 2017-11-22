@@ -4,6 +4,10 @@ import { AppLoading, Asset, Font } from "expo";
 import { Ionicons } from "@expo/vector-icons";
 import RootNavigation from "./navigation/RootNavigation";
 
+const unsafeConsole = console as any;
+unsafeConsole.ignoredYellowBox = [
+  "Warning: Can only update a mounted or mounting component."
+];
 export default class App extends React.Component<any, any> {
   state = {
     isLoadingComplete: false
