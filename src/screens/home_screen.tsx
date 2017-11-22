@@ -1,57 +1,24 @@
 import * as React from "react";
-import { Platform, StyleSheet, View } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import * as ui from "../ui/";
 
-const PrayerCard = () => (
-  <View
-    style={{
-      backgroundColor: "#fff",
-      padding: ui.styles.gutter * 2,
-      borderRadius: 4
-    }}
-  >
-    <ui.Text style={{ paddingBottom: 4 }}>
-      Pray for <ui.BoldText>Timothy Keller</ui.BoldText> to be comforted as he
-      undergoes uncertainty at work with regards to the future.
-    </ui.Text>
-    <ui.Text style={{ paddingBottom: 4 }}>
-      31 prayers from <ui.BoldText>you</ui.BoldText>,{" "}
-      <ui.BoldText>Jean Jacques</ui.BoldText>,{" "}
-      <ui.BoldText>Andy Lang</ui.BoldText>, and{" "}
-      <ui.BoldText>10 others</ui.BoldText>
-    </ui.Text>
-    <ui.Text style={{ fontSize: 11 }}>Mary Magdalene wrote 9 days ago</ui.Text>
-    <ui.View
-      style={{
-        flexDirection: "row",
-        justifyContent: "space-around",
-        paddingTop: ui.styles.gutter
-      }}
-    >
-      <ui.View style={{ flexDirection: "row" }}>
-        <ui.Icon name={"upload-cloud"} size={24} style={{ paddingRight: 9 }} />
-        <ui.Text>Pray</ui.Text>
-      </ui.View>
-      <ui.View style={{ flexDirection: "row" }}>
-        <ui.Icon
-          name={"message-square"}
-          size={24}
-          style={{ paddingRight: 9 }}
-        />
-        <ui.Text>7 Comments</ui.Text>
-      </ui.View>
-    </ui.View>
-  </View>
-);
+ui.StatusBar.setBarStyle("light-content");
 
-export default class HomeScreen extends React.Component {
+export class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
 
   render() {
     return (
-      <View style={styles.container}>
+      <ui.View style={styles.container}>
+        <ui.StatusBar barStyle="light-content" />
+        <ui.View
+          style={{
+            backgroundColor: ui.styles.primaryColor,
+            paddingTop: ui.styles.gutter * 2
+          }}
+        />
         <ui.FlatList
           data={[1, 2, 3]}
           renderItem={this.renderItem}
@@ -59,11 +26,11 @@ export default class HomeScreen extends React.Component {
           ItemSeparatorComponent={this.renderSeparator}
           ListHeaderComponent={this.renderHeader}
         />
-      </View>
+      </ui.View>
     );
   }
 
-  renderItem = ({  }: any) => <PrayerCard />;
+  renderItem = ({  }: any) => <ui.PrayerCard />;
   keyExtractor = (item: any) => item.toString();
   renderSeparator = () => (
     <ui.View
@@ -74,11 +41,7 @@ export default class HomeScreen extends React.Component {
     />
   );
   renderHeader = () => (
-    <ui.Headline
-      style={{
-        paddingLeft: ui.styles.gutter * 2
-      }}
-    >
+    <ui.Headline style={{ backgroundColor: ui.styles.primaryColor }}>
       Pray With Me
     </ui.Headline>
   );
@@ -86,9 +49,7 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fefefe",
-    paddingTop: 30
+    flex: 1
   },
   developmentModeText: {
     marginBottom: 20,

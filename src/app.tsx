@@ -1,8 +1,11 @@
 import * as React from "react";
-import { Platform, StatusBar, StyleSheet, View } from "react-native";
+import { Platform, StatusBar, StyleSheet } from "react-native";
 import { AppLoading, Asset, Font } from "expo";
 import { MaterialIcons } from "@expo/vector-icons";
-import RootNavigation from "./navigation/RootNavigation";
+
+import * as ui from "./ui";
+
+import RootNavigation from "./navigation/root_navigation";
 
 const unsafeConsole = console as any;
 unsafeConsole.ignoredYellowBox = [
@@ -24,13 +27,13 @@ export default class App extends React.Component<any, any> {
       );
     } else {
       return (
-        <View style={styles.container}>
+        <ui.View style={styles.container}>
           {Platform.OS === "ios" && <StatusBar barStyle="default" />}
           {Platform.OS === "android" && (
-            <View style={styles.statusBarUnderlay} />
+            <ui.View style={styles.statusBarUnderlay} />
           )}
           <RootNavigation />
-        </View>
+        </ui.View>
       );
     }
   }

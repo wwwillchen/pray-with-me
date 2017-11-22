@@ -3,8 +3,9 @@ import { TabNavigator, TabBarBottom } from "react-navigation";
 
 import * as ui from "../ui/";
 
-import HomeScreen from "../screens/home_screen";
-import LinksScreen from "../screens/LinksScreen";
+import { HomeScreen } from "../screens/home_screen";
+import { MyPrayersScreen } from "../screens/my_prayers_screen";
+import { AddPrayerScreen } from "../screens/add_prayer_screen";
 import SettingsScreen from "../screens/SettingsScreen";
 
 export default TabNavigator(
@@ -12,20 +13,21 @@ export default TabNavigator(
     Home: {
       screen: HomeScreen
     },
-    Prayers: {
-      screen: LinksScreen
+    MyPrayers: {
+      screen: MyPrayersScreen
     },
     Add: {
-      screen: LinksScreen
+      screen: AddPrayerScreen
     },
     Friends: {
-      screen: LinksScreen
+      screen: AddPrayerScreen
     },
     Settings: {
       screen: SettingsScreen
     }
   },
   {
+    initialRouteName: "MyPrayers",
     navigationOptions: ({ navigation }: any) => ({
       tabBarIcon: ({ focused }: any) => {
         const { routeName } = navigation.state;
@@ -34,7 +36,7 @@ export default TabNavigator(
           case "Home":
             iconName = "home";
             break;
-          case "Prayers":
+          case "MyPrayers":
             iconName = "list";
             break;
           case "Add":

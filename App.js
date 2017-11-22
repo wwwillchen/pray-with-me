@@ -1,2 +1,2 @@
-import Wrapper from "./out/";
-export default Wrapper;
+import App from "./out/app";
+export default App;
