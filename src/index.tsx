@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Platform, StatusBar, StyleSheet, View } from "react-native";
 import { AppLoading, Asset, Font } from "expo";
-import { Ionicons } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import RootNavigation from "./navigation/RootNavigation";
 
 const unsafeConsole = console as any;
@@ -43,10 +43,12 @@ export default class App extends React.Component<any, any> {
       ]),
       Font.loadAsync({
         // This is the font that we are using for our tab bar
-        ...Ionicons.font,
+        ...MaterialIcons.font,
         // We include SpaceMono because we use it in HomeScreen.js. Feel free
         // to remove this if you are not using it in your app
-        "space-mono": require("../assets/fonts/SpaceMono-Regular.ttf")
+        montserrat: require("../assets/fonts/Montserrat-Medium.ttf"),
+        noto: require("../assets/fonts/NotoSans-Regular.ttf"),
+        "noto-bold": require("../assets/fonts/NotoSans-Bold.ttf")
       })
     ]);
   };

@@ -1,11 +1,9 @@
-import React from "react";
-import { Platform } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import * as React from "react";
 import { TabNavigator, TabBarBottom } from "react-navigation";
 
-import Colors from "../constants/Colors";
+import * as ui from "../ui/";
 
-import HomeScreen from "../screens/HomeScreen";
+import HomeScreen from "../screens/home_screen";
 import LinksScreen from "../screens/LinksScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 
@@ -28,33 +26,35 @@ export default TabNavigator(
     }
   },
   {
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused }) => {
+    navigationOptions: ({ navigation }: any) => ({
+      tabBarIcon: ({ focused }: any) => {
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
           case "Home":
-            iconName = "md-home";
+            iconName = "home";
             break;
           case "Prayers":
-            iconName = "md-list";
+            iconName = "list";
             break;
           case "Add":
-            iconName = "md-add";
+            iconName = "plus";
             break;
           case "Friends":
-            iconName = "md-people";
+            iconName = "users";
             break;
           case "Settings":
-            iconName = "md-options";
+            iconName = "settings";
             break;
         }
         return (
-          <Ionicons
+          <ui.Icon
             name={iconName}
-            size={28}
+            size={32}
             style={{ marginBottom: -5 }}
-            color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+            color={
+              focused ? ui.styles.tabIconSelected : ui.styles.tabIconDefault
+            }
           />
         );
       }
@@ -64,10 +64,12 @@ export default TabNavigator(
     animationEnabled: false,
     swipeEnabled: false,
     tabBarOptions: {
+      showLabel: false,
       style: {
-        backgroundColor: Colors.tabBar,
-        marginBottom: 4
+        backgroundColor: "#fafafa",
+        marginBottom: 4,
+        borderTopColor: "#fff"
       }
     }
-  }
+  } as any
 );
