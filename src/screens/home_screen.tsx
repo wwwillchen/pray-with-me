@@ -1,17 +1,12 @@
 import * as React from "react";
-import { StyleSheet } from "react-native";
-import * as ui from "../ui/";
 
-ui.StatusBar.setBarStyle("light-content");
+import * as ui from "../ui/";
 
 const themeColor = ui.styles.primaryColor;
 
 export class HomeScreen extends React.Component {
-  static navigationOptions = {
-    header: null
-  };
-
   render() {
+    ui.StatusBar.setBarStyle("light-content");
     return (
       <ui.View style={styles.container}>
         <ui.ThemedStatusBar themeColor={themeColor} />
@@ -26,15 +21,6 @@ export class HomeScreen extends React.Component {
           contentOffset={{ y: ui.styles.headerHeight, x: 0 }}
           style={{ backgroundColor: ui.colors.lightGray }}
         />
-        <ui.View
-          style={{
-            backgroundColor: ui.colors.lightGray,
-            bottom: 0,
-            height: 200,
-            position: "absolute",
-            zIndex: 9
-          }}
-        />
       </ui.View>
     );
   }
@@ -46,7 +32,7 @@ export class HomeScreen extends React.Component {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = ui.StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: themeColor

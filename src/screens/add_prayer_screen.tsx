@@ -3,10 +3,6 @@ import { StyleSheet } from "react-native";
 import * as ui from "../ui/";
 
 export class AddPrayerScreen extends React.Component {
-  static navigationOptions = {
-    header: null
-  };
-
   render() {
     return (
       <ui.View style={styles.container}>
