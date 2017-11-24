@@ -17,8 +17,8 @@ export class HomeScreen extends React.Component {
           ItemSeparatorComponent={this.renderSeparator}
           ListHeaderComponent={this.renderHeader}
           contentContainerStyle={{ backgroundColor: themeColor }}
-          contentInset={{ top: -ui.styles.headerHeight }}
-          contentOffset={{ y: ui.styles.headerHeight, x: 0 }}
+          contentInset={{ top: -ui.styles.headerSpacerHeight }}
+          contentOffset={{ y: ui.styles.headerSpacerHeight, x: 0 }}
           style={{ backgroundColor: ui.colors.lightGray }}
         />
       </ui.View>

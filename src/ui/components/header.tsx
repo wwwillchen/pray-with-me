@@ -11,7 +11,7 @@ export const Header = (props: HeaderProps) => (
   <ui.View
     style={{
       backgroundColor: props.themeColor,
-      height: ui.styles.headerHeight + 60,
+      height: ui.styles.headerSpacerHeight + ui.styles.headerContentHeight,
       flex: 1,
       justifyContent: "flex-end"
     }}

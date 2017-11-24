@@ -27,7 +27,7 @@ export default TabNavigator(
     }
   },
   {
-    initialRouteName: "MyPrayers",
+    initialRouteName: "Add",
     navigationOptions: ({ navigation }: any) => ({
       header: null,
       tabBarIcon: ({ focused }: any) => {

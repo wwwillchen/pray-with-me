@@ -12,7 +12,8 @@ export const styles = {
   noticeBackground: tintColor,
   noticeText: "#fff",
   gutter: 12,
-  headerHeight: 200
+  headerSpacerHeight: 200,
+  headerContentHeight: 60
 };
 
 export const colors = {
