@@ -27,7 +27,7 @@ export default TabNavigator(
     }
   },
   {
-    initialRouteName: "MyPrayers",
+    // initialRouteName: "MyPrayers",
     navigationOptions: ({ navigation }: any) => ({
       tabBarIcon: ({ focused }: any) => {
         const { routeName } = navigation.state;

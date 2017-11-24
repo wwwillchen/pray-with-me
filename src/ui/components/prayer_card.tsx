@@ -43,3 +43,28 @@ export const PrayerCard = () => (
     </ui.View>
   </ui.View>
 );
+
+export const PrayerCardSeparator = () => (
+  <ui.View
+    style={{
+      height: ui.styles.gutter * 1.5,
+      backgroundColor: ui.colors.lightGray
+    }}
+  />
+);
+
+interface ThemedStatusBarProps {
+  themeColor: string;
+}
+
+export const ThemedStatusBar = (props: ThemedStatusBarProps) => (
+  <ui.View>
+    <ui.StatusBar barStyle="light-content" />
+    <ui.View
+      style={{
+        backgroundColor: props.themeColor,
+        paddingTop: ui.styles.gutter * 2
+      }}
+    />
+  </ui.View>
+);

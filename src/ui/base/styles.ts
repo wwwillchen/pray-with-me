@@ -11,11 +11,13 @@ export const styles = {
   warningText: "#666804",
   noticeBackground: tintColor,
   noticeText: "#fff",
-  gutter: 12
+  gutter: 12,
+  headerHeight: 200
 };
 
 export const colors = {
-  primary: "#49BA78",
+  primary: tintColor,
+  green: "#49BA78",
   secondary: "#1B75BC",
   lightBlue: "#00ADDC",
   lightGreen: "#8DC63F",
@@ -24,5 +26,6 @@ export const colors = {
   orange: "#EB6F24",
   disabled: "lightgray",
   error: "#E0504C",
-  icon: "#666"
+  icon: "#666",
+  lightGray: "#eee"
 };
