@@ -16,7 +16,7 @@ export class AddPrayerScreen extends React.Component {
           contentOffset={{ y: ui.styles.headerSpacerHeight, x: 0 }}
           style={{ backgroundColor: ui.colors.lightGray }}
         >
-          <ui.Header title={"Add Prayer"} themeColor={themeColor} />
+          <ui.Header title={"Pray for..."} themeColor={themeColor} />
           <ui.View
             style={{
               padding: ui.styles.gutter,
@@ -27,13 +27,41 @@ export class AddPrayerScreen extends React.Component {
                 ui.styles.headerContentHeight
             }}
           >
-            <ui.Text>Add Prayer</ui.Text>
+            <ui.FlatList
+              renderItem={this.renderItem}
+              keyExtractor={this.keyExtractor}
+              data={[
+                "Stephanie Allo",
+                "Willard Vaudeville",
+                "Abraham Lincoln",
+                "Stephanie Allo",
+                "Willard Vaudeville",
+                "Abraham Lincoln",
+                "Stephanie Allo",
+                "Willard Vaudeville",
+                "Abraham Lincoln",
+                "George Washington"
+              ]}
+            />
           </ui.View>
         </ui.ScrollView>
       </ui.View>
     );
   }
+
+  renderItem = ({ item }: any) => <FriendRow name={item} />;
+  keyExtractor = (item: any) => item + Math.random();
 }
+
+interface FriendProps {
+  name: string;
+}
+
+const FriendRow = (props: FriendProps) => (
+  <ui.View style={{ padding: ui.styles.gutter }}>
+    <ui.Text>{props.name}</ui.Text>
+  </ui.View>
+);
 
 const styles = ui.StyleSheet.create({
   container: {
@@ -42,55 +70,18 @@ const styles = ui.StyleSheet.create({
   }
 });
 
-// import * as React from "react";
-// import { StyleSheet } from "react-native";
-// import * as ui from "../ui/";
-
-// export class AddPrayerScreen extends React.Component {
-//   render() {
-//     return (
-//       <ui.View style={styles.container}>
-//         <ui.View
-//           style={{
-//             backgroundColor: ui.colors.lightBlue,
-//             paddingTop: ui.styles.gutter * 2
-//           }}
-//         />
-//         <ui.FlatList
-//           data={[1, 2, 3, 4, 5]}
-//           renderItem={this.renderItem}
-//           keyExtractor={this.keyExtractor}
-//           ItemSeparatorComponent={this.renderSeparator}
-//           ListHeaderComponent={this.renderHeader}
-//         />
-//       </ui.View>
-//     );
-//   }
-
-//   renderItem = ({  }: any) => <ui.PrayerCard />;
-//   keyExtractor = (item: any) => item.toString();
-//   renderSeparator = () => (
-//     <ui.View
-//       style={{
-//         height: ui.styles.gutter * 1.5,
-//         backgroundColor: "#eee"
-//       }}
-//     />
-//   );
-//   renderHeader = () => (
-//     <ui.Headline
-//       style={{
-//         paddingLeft: ui.styles.gutter * 2,
-//         backgroundColor: ui.colors.lightBlue
-//       }}
-//     >
-//       Add Prayer
-//     </ui.Headline>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1
-//   }
-// });
+{
+  /* <ui.AnimatedTextInput
+autoCapitalize={"none"}
+autoCorrect={false}
+onChangeText={this.setTarget}
+label={"Pray for who..."}
+style={{
+  marginHorizontal: ui.styles.gutter * 2,
+  marginTop: ui.styles.gutter
+}}
+borderColor={themeColor}
+labelStyle={{ color: themeColor, fontFamily: "noto" }}
+inputStyle={{ color: themeColor }}
+/> */
+}
