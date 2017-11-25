@@ -70,9 +70,10 @@ export default TabNavigator(
     tabBarOptions: {
       showLabel: false,
       style: {
-        backgroundColor: "#fafafa",
+        backgroundColor: "#fff",
         marginBottom: 4,
-        borderTopColor: "#fff",
+        borderTopColor: ui.colors.lightGray,
+        borderTopWidth: 1.5,
       },
     },
   } as any
