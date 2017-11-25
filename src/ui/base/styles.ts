@@ -14,7 +14,7 @@ export const styles = {
   gutter: 12,
   headerSpacerHeight: 200,
   headerContentHeight: 60,
-  text: "#333",
+  text: "#222",
 };
 
 export const colors = {

@@ -60,14 +60,7 @@ export class ManageFriendsScreen extends React.Component<
   next = () => {};
 
   renderHeader = () => <ui.Header title={"Friends"} themeColor={themeColor} />;
-  renderSeparator = () => (
-    <ui.View
-      style={{
-        height: 1.5,
-        backgroundColor: ui.colors.lightGray,
-      }}
-    />
-  );
+  renderSeparator = () => <ui.RowSeparator />;
   renderItem = ({ item }: any) => (
     <ui.BasicFriendRow name={item} handleFriendClick={this.handleFriendClick} />
   );

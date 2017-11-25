@@ -34,9 +34,20 @@ export class SettingsScreen extends React.Component<SettingsScreenProps, {}> {
                 ui.styles.headerContentHeight,
             }}
           >
-            <ui.Text>User: willchen@praywithme</ui.Text>
+            <ui.Row>
+              <ui.Text>User: willchen@praywithme</ui.Text>
+            </ui.Row>
+            <ui.RowSeparator />
             <ui.TouchableOpacity>
-              <ui.Text>Sign out</ui.Text>
+              <ui.Row>
+                <ui.Icon
+                  name={"log-out"}
+                  size={24}
+                  style={{ marginRight: ui.styles.gutter }}
+                  color={ui.styles.tabIconDefault}
+                />
+                <ui.Text>Sign out</ui.Text>
+              </ui.Row>
             </ui.TouchableOpacity>
           </ui.View>
         </ui.ScrollView>
