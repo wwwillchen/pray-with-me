@@ -1,4 +1,5 @@
 export {
+  Animated,
   Image,
   View,
   ScrollView,

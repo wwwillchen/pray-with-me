@@ -5,7 +5,7 @@ import * as ui from "../ui/";
 
 import { HomeScreen } from "../screens/home_screen";
 import { MyPrayersScreen } from "../screens/my_prayers_screen";
-import { AddPrayerScreen } from "../screens/add_prayer_screen";
+import { AddPrayerNavigation } from "../screens/add_prayer_navigation";
 import SettingsScreen from "../screens/SettingsScreen";
 
 export default TabNavigator(
@@ -17,10 +17,10 @@ export default TabNavigator(
       screen: MyPrayersScreen
     },
     Add: {
-      screen: AddPrayerScreen
+      screen: AddPrayerNavigation
     },
     Friends: {
-      screen: AddPrayerScreen
+      screen: AddPrayerNavigation
     },
     Settings: {
       screen: SettingsScreen
