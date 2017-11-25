@@ -103,7 +103,6 @@ export class AddPrayerShareScreen extends React.Component<
     setTimeout(() => {
       this.setState({ showModal: false });
     }, 1200);
-    return;
     setTimeout(() => {
       const resetAction = NavigationActions.reset({
         index: 0,
@@ -125,7 +124,7 @@ export class AddPrayerShareScreen extends React.Component<
     />
   );
   renderItem = ({ item }: any) => (
-    <ui.FriendRow
+    <ui.CheckboxFriendRow
       themeColor={themeColor}
       name={item}
       handleFriendClick={this.handleFriendClick}

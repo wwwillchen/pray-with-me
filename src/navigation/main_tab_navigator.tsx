@@ -6,28 +6,29 @@ import * as ui from "../ui/";
 import { HomeScreen } from "../screens/home_screen";
 import { MyPrayersScreen } from "../screens/my_prayers_screen";
 import { AddPrayerNavigation } from "./add_prayer_navigation";
+import { FriendsNavigation } from "./friends_navigation";
 import SettingsScreen from "../screens/SettingsScreen";
 
 export default TabNavigator(
   {
     Home: {
-      screen: HomeScreen
+      screen: HomeScreen,
     },
     MyPrayers: {
-      screen: MyPrayersScreen
+      screen: MyPrayersScreen,
     },
     AddPrayer: {
-      screen: AddPrayerNavigation
+      screen: AddPrayerNavigation,
     },
     Friends: {
-      screen: AddPrayerNavigation
+      screen: FriendsNavigation,
     },
     Settings: {
-      screen: SettingsScreen
-    }
+      screen: SettingsScreen,
+    },
   },
   {
-    initialRouteName: "AddPrayer",
+    initialRouteName: "Friends",
     navigationOptions: ({ navigation }: any) => ({
       header: null,
       tabBarIcon: ({ focused }: any) => {
@@ -60,7 +61,7 @@ export default TabNavigator(
             }
           />
         );
-      }
+      },
     }),
     tabBarComponent: TabBarBottom,
     tabBarPosition: "bottom",
@@ -71,8 +72,8 @@ export default TabNavigator(
       style: {
         backgroundColor: "#fafafa",
         marginBottom: 4,
-        borderTopColor: "#fff"
-      }
-    }
+        borderTopColor: "#fff",
+      },
+    },
   } as any
 );

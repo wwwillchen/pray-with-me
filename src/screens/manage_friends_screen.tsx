@@ -3,33 +3,34 @@ import * as React from "react";
 import * as ui from "../ui/";
 import * as d from "../domain";
 
-const themeColor = ui.colors.lightBlue;
+const themeColor = ui.colors.yellow;
 
-interface AddPrayerTargetScreenProps extends d.NavigationProps {}
+interface ManageFriendsScreenProps extends d.NavigationProps {}
 
-export class AddPrayerTargetScreen extends React.Component<
-  AddPrayerTargetScreenProps,
+export class ManageFriendsScreen extends React.Component<
+  ManageFriendsScreenProps,
   {
     showNextBar: boolean;
     fadeAnimatedValue: ui.Animated.Value;
     yAnimatedValue: ui.Animated.Value;
+    showModal: boolean;
   }
 > {
-  constructor(props: AddPrayerTargetScreenProps) {
+  constructor(props: ManageFriendsScreenProps) {
     super(props);
     this.state = {
-      showNextBar: true,
+      showNextBar: false,
       fadeAnimatedValue: new ui.Animated.Value(0),
       yAnimatedValue: new ui.Animated.Value(-50),
+      showModal: false,
     };
-    // this.next();
   }
+
   render() {
     ui.StatusBar.setBarStyle("light-content");
     return (
       <ui.View style={styles.container}>
         <ui.ThemedStatusBar themeColor={themeColor} />
-
         <ui.FlatList
           renderItem={this.renderItem}
           ListHeaderComponent={this.renderHeader}
@@ -50,49 +51,15 @@ export class AddPrayerTargetScreen extends React.Component<
             "Willard Vaudeville",
             "Abraham Lincoln",
             "George Washington",
-            "Willard Vaudeville",
-            "Abraham Lincoln",
-            "Stephanie Allo",
-            "Willard Vaudeville",
-            "Abraham Lincoln",
-            "Stephanie Allo",
-            "Willard Vaudeville",
-            "Abraham Lincoln",
-            "George Washington",
           ]}
         />
-        <ui.TouchableOpacity onPress={this.next}>
-          <ui.Animated.View
-            style={{
-              position: "absolute",
-              bottom: this.state.yAnimatedValue,
-              height: 50,
-              width: ui.layout.window.width,
-              backgroundColor: themeColor,
-              padding: ui.styles.gutter,
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-              opacity: this.state.fadeAnimatedValue,
-            }}
-          >
-            <ui.BoldText style={{ color: "white", fontSize: 14 }}>
-              Sidhant Kanplease
-            </ui.BoldText>
-            <ui.Icon name={"arrow-right"} size={32} color={"white"} />
-          </ui.Animated.View>
-        </ui.TouchableOpacity>
       </ui.View>
     );
   }
 
-  next = () => {
-    this.props.navigation.navigate("AddPrayerText");
-  };
+  next = () => {};
 
-  renderHeader = () => (
-    <ui.Header title={"Pray For..."} themeColor={themeColor} />
-  );
+  renderHeader = () => <ui.Header title={"Friends"} themeColor={themeColor} />;
   renderSeparator = () => (
     <ui.View
       style={{
@@ -102,11 +69,7 @@ export class AddPrayerTargetScreen extends React.Component<
     />
   );
   renderItem = ({ item }: any) => (
-    <ui.CheckboxFriendRow
-      themeColor={themeColor}
-      name={item}
-      handleFriendClick={this.handleFriendClick}
-    />
+    <ui.BasicFriendRow name={item} handleFriendClick={this.handleFriendClick} />
   );
   keyExtractor = (item: any) => item + Math.random();
   handleFriendClick = () => {
