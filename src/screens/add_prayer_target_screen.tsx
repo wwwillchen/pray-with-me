@@ -149,19 +149,3 @@ const styles = ui.StyleSheet.create({
     backgroundColor: themeColor
   }
 });
-
-{
-  /* <ui.AnimatedTextInput
-autoCapitalize={"none"}
-autoCorrect={false}
-onChangeText={this.setTarget}
-label={"Pray for who..."}
-style={{
-  marginHorizontal: ui.styles.gutter * 2,
-  marginTop: ui.styles.gutter
-}}
-borderColor={themeColor}
-labelStyle={{ color: themeColor, fontFamily: "noto" }}
-inputStyle={{ color: themeColor }}
-/> */
-}

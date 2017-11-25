@@ -2,6 +2,8 @@ import * as React from "react";
 
 import * as ui from "../ui/";
 
+import { FontAwesome } from "@expo/vector-icons";
+
 const themeColor = ui.colors.lightBlue;
 
 interface AddPrayerTextScreenProps {}
@@ -27,103 +29,50 @@ export class AddPrayerTextScreen extends React.Component<
     return (
       <ui.View style={styles.container}>
         <ui.ThemedStatusBar themeColor={themeColor} />
-
         <ui.ScrollView
-          // ListHeaderComponent={this.renderHeader}
-          // ItemSeparatorComponent={this.renderSeparator}
-          // keyExtractor={this.keyExtractor}
           contentContainerStyle={{ backgroundColor: themeColor }}
           contentInset={{ top: -ui.styles.headerSpacerHeight }}
           contentOffset={{ y: ui.styles.headerSpacerHeight, x: 0 }}
           style={{ backgroundColor: ui.colors.lightGray }}
-        />
-        <ui.Header title={"Pray for..."} themeColor={themeColor} />
-        <ui.TouchableOpacity>
-          <ui.Animated.View
+        >
+          <ui.Header title={"Write Prayer"} themeColor={themeColor} />
+          <ui.View
             style={{
-              position: "absolute",
-              bottom: this.state.yAnimatedValue,
-              height: 50,
-              width: ui.layout.window.width,
-              backgroundColor: themeColor,
               padding: ui.styles.gutter,
-              flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
-              opacity: this.state.fadeAnimatedValue
+              backgroundColor: "white",
+              height:
+                ui.layout.window.height -
+                ui.styles.headerSpacerHeight +
+                ui.styles.headerContentHeight
             }}
           >
-            <ui.BoldText style={{ color: "white", fontSize: 14 }}>
-              Sidhant Kanplease
-            </ui.BoldText>
-            <ui.Icon name={"arrow-right"} size={32} color={"white"} />
-          </ui.Animated.View>
-        </ui.TouchableOpacity>
+            <ui.AnimatedTextInput
+              autoCapitalize={"none"}
+              autoCorrect={false}
+              onChangeText={this.setText}
+              label={"Pray for Billy that..."}
+              style={{
+                marginHorizontal: ui.styles.gutter,
+                marginTop: ui.styles.gutter
+              }}
+              borderColor={themeColor}
+              labelStyle={{ color: themeColor, fontFamily: "noto" }}
+              inputStyle={{
+                color: ui.styles.text,
+                fontSize: 16,
+                fontWeight: "normal"
+              }}
+              multiline={true}
+              height={ui.layout.window.height * 3 / 5}
+            />
+          </ui.View>
+        </ui.ScrollView>
       </ui.View>
     );
   }
 
-  renderHeader = () => (
-    <ui.Header title={"Pray for..."} themeColor={themeColor} />
-  );
-  renderSeparator = () => (
-    <ui.View
-      style={{
-        height: 1.5,
-        backgroundColor: ui.colors.lightGray
-      }}
-    />
-  );
-  renderItem = ({ item }: any) => (
-    <FriendRow name={item} handleFriendClick={this.handleFriendClick} />
-  );
-  keyExtractor = (item: any) => item + Math.random();
-  handleFriendClick = () => {
-    this.setState({
-      showNextBar: !this.state.showNextBar
-    });
-    ui.Animated.timing(
-      // Animate over time
-      this.state.yAnimatedValue, // The animated value to drive
-      {
-        toValue: this.state.showNextBar ? -50 : 0, // Animate to opacity: 1 (opaque)
-        duration: 300 // Make it take a while
-      }
-    ).start();
-    ui.Animated.timing(
-      // Animate over time
-      this.state.fadeAnimatedValue, // The animated value to drive
-      {
-        toValue: this.state.showNextBar ? 0 : 1, // Animate to opacity: 1 (opaque)
-        duration: 300 // Make it take a while
-      }
-    ).start();
-  };
+  setText = () => {};
 }
-
-interface FriendProps {
-  name: string;
-  handleFriendClick: any;
-}
-
-const FriendRow = (props: FriendProps) => (
-  <ui.View
-    style={{
-      padding: ui.styles.gutter,
-      flexDirection: "row",
-      justifyContent: "space-between",
-      backgroundColor: "white"
-    }}
-  >
-    <ui.CheckBox
-      style={{ flex: 1, padding: ui.styles.gutter / 2 }}
-      leftTextStyle={{ fontFamily: "noto" }}
-      leftText={props.name}
-      onClick={props.handleFriendClick}
-      checkBoxColor={themeColor}
-    />
-  </ui.View>
-);
 
 const styles = ui.StyleSheet.create({
   container: {
@@ -131,19 +80,3 @@ const styles = ui.StyleSheet.create({
     backgroundColor: themeColor
   }
 });
-
-{
-  /* <ui.AnimatedTextInput
-autoCapitalize={"none"}
-autoCorrect={false}
-onChangeText={this.setText}
-label={"Pray for who..."}
-style={{
-  marginHorizontal: ui.styles.gutter * 2,
-  marginTop: ui.styles.gutter
-}}
-borderColor={themeColor}
-labelStyle={{ color: themeColor, fontFamily: "noto" }}
-inputStyle={{ color: themeColor }}
-/> */
-}

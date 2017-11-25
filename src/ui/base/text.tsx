@@ -12,7 +12,7 @@ export const Headline = (props: HeadlineProps) => (
       {
         fontFamily: "montserrat",
         fontSize: 36,
-        color: "#333"
+        color: styles.text
       },
       {
         paddingBottom: styles.gutter,
@@ -31,12 +31,14 @@ interface TextProps extends TextProperties {
 }
 
 export const Text = (props: TextProps) => (
-  <RNText style={[{ fontFamily: "noto" }, props.style]}>
+  <RNText style={[{ fontFamily: "noto", color: styles.text }, props.style]}>
     {props.children}
   </RNText>
 );
 export const BoldText = (props: TextProps) => (
-  <RNText style={[{ fontFamily: "noto-bold" }, props.style]}>
+  <RNText
+    style={[{ fontFamily: "noto-bold", color: styles.text }, props.style]}
+  >
     {props.children}
   </RNText>
 );

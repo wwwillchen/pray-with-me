@@ -1,3 +1,3 @@
-import Madoka from "./third_party/react-native-textinput-effects/Madoka";
+import TextInput from "./third_party/react-native-textinput-effects/Hoshi";
 
-export const AnimatedTextInput = Madoka as any;
+export const AnimatedTextInput = TextInput as any;

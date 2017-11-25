@@ -13,7 +13,8 @@ export const styles = {
   noticeText: "#fff",
   gutter: 12,
   headerSpacerHeight: 200,
-  headerContentHeight: 60
+  headerContentHeight: 60,
+  text: "#333"
 };
 
 export const colors = {
