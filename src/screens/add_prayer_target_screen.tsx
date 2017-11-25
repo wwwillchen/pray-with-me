@@ -22,6 +22,7 @@ export class AddPrayerTargetScreen extends React.Component<
       fadeAnimatedValue: new ui.Animated.Value(0),
       yAnimatedValue: new ui.Animated.Value(-50)
     };
+    this.next();
   }
   render() {
     ui.StatusBar.setBarStyle("light-content");

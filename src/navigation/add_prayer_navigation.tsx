@@ -1,8 +1,8 @@
 // import * as React from "react";
 import { StackNavigator } from "react-navigation";
 
-import { AddPrayerTargetScreen } from "./add_prayer_target_screen";
-import { AddPrayerTextScreen } from "./add_prayer_text_screen";
+import { AddPrayerTargetScreen } from "../screens/add_prayer_target_screen";
+import { AddPrayerTextScreen } from "../screens/add_prayer_text_screen";
 // // import * as ui from "../ui/";
 
 export const AddPrayerNavigation = StackNavigator(

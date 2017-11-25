@@ -28,28 +28,16 @@ export class AddPrayerTextScreen extends React.Component<
       <ui.View style={styles.container}>
         <ui.ThemedStatusBar themeColor={themeColor} />
 
-        <ui.FlatList
-          renderItem={this.renderItem}
-          ListHeaderComponent={this.renderHeader}
-          ItemSeparatorComponent={this.renderSeparator}
-          keyExtractor={this.keyExtractor}
+        <ui.ScrollView
+          // ListHeaderComponent={this.renderHeader}
+          // ItemSeparatorComponent={this.renderSeparator}
+          // keyExtractor={this.keyExtractor}
           contentContainerStyle={{ backgroundColor: themeColor }}
           contentInset={{ top: -ui.styles.headerSpacerHeight }}
           contentOffset={{ y: ui.styles.headerSpacerHeight, x: 0 }}
           style={{ backgroundColor: ui.colors.lightGray }}
-          data={[
-            "Stephanie Allo",
-            "Willard Vaudeville",
-            "Abraham Lincoln",
-            "Stephanie Allo",
-            "Willard Vaudeville",
-            "Abraham Lincoln",
-            "Stephanie Allo",
-            "Willard Vaudeville",
-            "Abraham Lincoln",
-            "George Washington"
-          ]}
         />
+        <ui.Header title={"Pray for..."} themeColor={themeColor} />
         <ui.TouchableOpacity>
           <ui.Animated.View
             style={{

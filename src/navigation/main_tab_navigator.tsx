@@ -5,7 +5,7 @@ import * as ui from "../ui/";
 
 import { HomeScreen } from "../screens/home_screen";
 import { MyPrayersScreen } from "../screens/my_prayers_screen";
-import { AddPrayerNavigation } from "../screens/add_prayer_navigation";
+import { AddPrayerNavigation } from "./add_prayer_navigation";
 import SettingsScreen from "../screens/SettingsScreen";
 
 export default TabNavigator(
@@ -16,7 +16,7 @@ export default TabNavigator(
     MyPrayers: {
       screen: MyPrayersScreen
     },
-    Add: {
+    AddPrayer: {
       screen: AddPrayerNavigation
     },
     Friends: {
@@ -27,7 +27,7 @@ export default TabNavigator(
     }
   },
   {
-    initialRouteName: "Add",
+    initialRouteName: "AddPrayer",
     navigationOptions: ({ navigation }: any) => ({
       header: null,
       tabBarIcon: ({ focused }: any) => {
@@ -40,7 +40,7 @@ export default TabNavigator(
           case "MyPrayers":
             iconName = "list";
             break;
-          case "Add":
+          case "AddPrayer":
             iconName = "plus";
             break;
           case "Friends":
