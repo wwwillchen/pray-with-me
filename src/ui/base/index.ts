@@ -4,7 +4,8 @@ export {
   ScrollView,
   FlatList,
   StatusBar,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } from "react-native";
 export { Feather as Icon } from "@expo/vector-icons";
 
