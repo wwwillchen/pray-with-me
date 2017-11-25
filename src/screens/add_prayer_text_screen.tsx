@@ -1,15 +1,14 @@
 import * as React from "react";
 
 import * as ui from "../ui/";
-
-import { FontAwesome } from "@expo/vector-icons";
+import * as d from "../domain";
 
 const themeColor = ui.colors.lightBlue;
 
-interface AddPrayerTextScreenProps {}
+interface AddPrayerTextScreenProps extends d.NavigationProps {}
 
 export class AddPrayerTextScreen extends React.Component<
-  {},
+  AddPrayerTextScreenProps,
   {
     showNextBar: boolean;
     fadeAnimatedValue: ui.Animated.Value;
@@ -19,7 +18,7 @@ export class AddPrayerTextScreen extends React.Component<
   constructor(props: AddPrayerTextScreenProps) {
     super(props);
     this.state = {
-      showNextBar: true,
+      showNextBar: false,
       fadeAnimatedValue: new ui.Animated.Value(0),
       yAnimatedValue: new ui.Animated.Value(-50)
     };
@@ -46,32 +45,73 @@ export class AddPrayerTextScreen extends React.Component<
                 ui.styles.headerContentHeight
             }}
           >
-            <ui.AnimatedTextInput
-              autoCapitalize={"none"}
-              autoCorrect={false}
-              onChangeText={this.setText}
-              label={"Pray for Billy that..."}
-              style={{
-                marginHorizontal: ui.styles.gutter,
-                marginTop: ui.styles.gutter
-              }}
-              borderColor={themeColor}
-              labelStyle={{ color: themeColor, fontFamily: "noto" }}
-              inputStyle={{
-                color: ui.styles.text,
-                fontSize: 16,
-                fontWeight: "normal"
-              }}
-              multiline={true}
-              height={ui.layout.window.height * 3 / 5}
+            <ui.FloatingLabelTextInput
+              noBorder
+              themeColor={themeColor}
+              placeholder={"Pray for Billy that..."}
+              onChangeTextValue={this.setText}
+              // onFocus={@myFocusFunction}
+              // onBlur={@onBlurFunction}
             />
           </ui.View>
+
+          <ui.TouchableOpacity onPress={this.next}>
+            <ui.Animated.View
+              style={{
+                position: "absolute",
+                bottom: this.state.yAnimatedValue,
+                height: 50,
+                width: ui.layout.window.width,
+                backgroundColor: themeColor,
+                padding: ui.styles.gutter,
+                flexDirection: "row",
+                justifyContent: "space-between",
+                alignItems: "center",
+                opacity: this.state.fadeAnimatedValue
+              }}
+            >
+              <ui.BoldText style={{ color: "white", fontSize: 14 }}>
+                Next
+              </ui.BoldText>
+              <ui.Icon name={"arrow-right"} size={32} color={"white"} />
+            </ui.Animated.View>
+          </ui.TouchableOpacity>
         </ui.ScrollView>
       </ui.View>
     );
   }
 
-  setText = () => {};
+  setText = (text: string) => {
+    if (text.length > 3 && !this.state.showNextBar) {
+      this.setState({
+        showNextBar: true
+      });
+      ui.Animated.timing(this.state.yAnimatedValue, {
+        toValue: 0,
+        duration: 300
+      }).start();
+      ui.Animated.timing(this.state.fadeAnimatedValue, {
+        toValue: 1,
+        duration: 300
+      }).start();
+    }
+    if (text.length === 0 && this.state.showNextBar) {
+      this.setState({
+        showNextBar: false
+      });
+      ui.Animated.timing(this.state.yAnimatedValue, {
+        toValue: -50,
+        duration: 300
+      }).start();
+      ui.Animated.timing(this.state.fadeAnimatedValue, {
+        toValue: 0,
+        duration: 300
+      }).start();
+    }
+  };
+  next = () => {
+    this.props.navigation.navigate("AddPrayerShare");
+  };
 }
 
 const styles = ui.StyleSheet.create({
