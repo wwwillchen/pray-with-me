@@ -14,7 +14,7 @@ export const styles = {
   gutter: 12,
   headerSpacerHeight: 200,
   headerContentHeight: 60,
-  text: "#333"
+  text: "#333",
 };
 
 export const colors = {
@@ -23,11 +23,12 @@ export const colors = {
   secondary: "#1B75BC",
   lightBlue: "#00ADDC",
   lightGreen: "#8DC63F",
-  yellow: "#FFC60B",
+  yellow: "#ffb600",
   purple: "#9B85BE",
   orange: "#EB6F24",
   disabled: "lightgray",
   error: "#E0504C",
   icon: "#666",
-  lightGray: "#eee"
+  lightGray: "#eee",
+  darkGray: "#666",
 };

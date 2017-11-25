@@ -7,7 +7,7 @@ import { HomeScreen } from "../screens/home_screen";
 import { MyPrayersScreen } from "../screens/my_prayers_screen";
 import { AddPrayerNavigation } from "./add_prayer_navigation";
 import { FriendsNavigation } from "./friends_navigation";
-import SettingsScreen from "../screens/SettingsScreen";
+import { SettingsScreen } from "../screens/settings_screen";
 
 export default TabNavigator(
   {
@@ -28,7 +28,7 @@ export default TabNavigator(
     },
   },
   {
-    initialRouteName: "Friends",
+    initialRouteName: "Settings",
     navigationOptions: ({ navigation }: any) => ({
       header: null,
       tabBarIcon: ({ focused }: any) => {

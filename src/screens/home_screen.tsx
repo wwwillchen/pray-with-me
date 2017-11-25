@@ -11,7 +11,7 @@ export class HomeScreen extends React.Component {
       <ui.View style={styles.container}>
         <ui.ThemedStatusBar themeColor={themeColor} />
         <ui.FlatList
-          data={[1, 2, 3]}
+          data={[1, 2, 3, 4, 5, 6]}
           renderItem={this.renderItem}
           keyExtractor={this.keyExtractor}
           ItemSeparatorComponent={this.renderSeparator}
@@ -35,6 +35,6 @@ export class HomeScreen extends React.Component {
 const styles = ui.StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: themeColor
-  }
+    backgroundColor: themeColor,
+  },
 });
